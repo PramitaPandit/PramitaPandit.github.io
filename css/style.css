@@ -9982,3 +9982,79 @@ h6,
   padding: 0;
   list-style-type: none;
 }
+
+/* --- Dark theme base --- */
+body {
+  background-color: #0d1117; /* almost-black */
+  color: #c9d1d9;            /* light text color */
+}
+
+/* Navbar overrides */
+.navbar {
+  background-color: rgba(13, 17, 23, 0.95) !important;
+  border-bottom: 1px solid #21262d;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: #c9d1d9 !important;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #58a6ff !important;
+}
+
+/* Primary / accent color override */
+.text-primary {
+  color: #58a6ff !important;
+}
+.bg-primary {
+  background-color: #161b22 !important;
+}
+
+/* Buttons */
+.btn-outline-primary {
+  border-color: #58a6ff !important;
+  color: #58a6ff !important;
+}
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  background-color: #58a6ff !important;
+  color: #0d1117 !important;
+}
+
+/* Using a lighter button style for Hire Me on dark bg */
+.btn-outline-light {
+  border-color: #c9d1d9 !important;
+  color: #c9d1d9 !important;
+}
+.btn-outline-light:hover {
+  background-color: #c9d1d9 !important;
+  color: #0d1117 !important;
+}
+
+/* Footer / social buttons */
+.bg-primary {
+  background-color: #0d1117 !important; /* ensure dark footer too */
+}
+.btn-social {
+  background-color: #21262d !important;
+  color: #c9d1d9 !important;
+  border: none;
+}
+.btn-social:hover {
+  background-color: #58a6ff !important;
+  color: #0d1117 !important;
+}
+
+/* Progress bars (skills) */
+.progress {
+  background-color: #21262d !important;
+}
+.progress-bar {
+  background-color: #58a6ff !important;
+}
+
+/* Any containers / sections backgrounds */
+.container, .card, .modal-content {
+  background-color: #161b22 !important;
+  border: 1px solid #21262d !important;
+}
+
