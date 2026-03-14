@@ -66,7 +66,7 @@ nav {
   transition: border-color 0.3s, background 0.3s;
 }
 nav.scrolled {
-  background: rgba(10,10,10,0.9);
+  background: rgba(13,27,42,0.95);
   backdrop-filter: blur(12px);
   border-color: var(--border);
 }
@@ -433,7 +433,7 @@ h2.section-title {
   transition: background 0.25s;
   cursor: pointer;
 }
-.proj-card:hover { background: #1e1e1e; }
+.proj-card:hover { background: var(--surface2); }
 .proj-card:hover .proj-arrow { opacity: 1; transform: translateX(0); }
 .proj-num {
   font-family: var(--mono);
@@ -533,29 +533,82 @@ h2.section-title {
 
 /* ── TESTIMONIALS ──────────────────────────────────────────── */
 #testimonials { }
-.testi-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 3rem; }
+.testi-intro { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; }
+.testi-linkedin-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--mono); font-size: 0.65rem;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--accent2); border: 1px solid rgba(74,158,202,0.3);
+  padding: 0.45rem 1rem;
+  transition: background 0.2s, color 0.2s;
+}
+.testi-linkedin-btn:hover { background: rgba(74,158,202,0.08); color: var(--text); }
+.testi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.testi-grid-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-top: none;
+}
 .testi-card {
   background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 1.75rem;
+  padding: 2rem 1.75rem;
+  display: flex; flex-direction: column;
+  transition: background 0.2s;
+}
+.testi-card:hover { background: var(--surface2); }
+.testi-card.featured { background: var(--surface2); }
+.testi-rel {
+  font-family: var(--mono); font-size: 0.58rem;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--accent); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.testi-rel::before {
+  content: ''; display: inline-block;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent); flex-shrink: 0;
 }
 .testi-quote {
   font-family: var(--serif);
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text);
   margin-bottom: 1.5rem;
   font-style: italic;
+  flex: 1;
 }
-.testi-name { font-size: 0.85rem; font-weight: 600; }
-.testi-role { font-family: var(--mono); font-size: 0.62rem; color: var(--muted2); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.2rem; }
+.testi-footer { display: flex; align-items: center; gap: 0.85rem; margin-top: auto; }
+.testi-avatar {
+  width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 0.7rem; font-weight: 500;
+  letter-spacing: 0.05em;
+}
+.testi-avatar.gold { background: rgba(212,168,67,0.15); color: var(--accent); border: 1px solid rgba(212,168,67,0.3); }
+.testi-avatar.blue { background: rgba(74,158,202,0.15); color: var(--accent2); border: 1px solid rgba(74,158,202,0.3); }
+.testi-meta { flex: 1; }
+.testi-name { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+.testi-role { font-family: var(--mono); font-size: 0.6rem; color: var(--muted2); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.2rem; line-height: 1.5; }
+.testi-verify {
+  font-family: var(--mono); font-size: 0.58rem;
+  color: var(--muted2); text-transform: uppercase; letter-spacing: 0.1em;
+  border: 1px solid var(--border2); padding: 0.25rem 0.6rem;
+  transition: color 0.2s, border-color 0.2s; white-space: nowrap;
+}
+.testi-verify:hover { color: var(--accent2); border-color: rgba(74,158,202,0.4); }
 .testi-mark {
-  font-family: var(--serif);
-  font-size: 3rem;
-  color: var(--accent);
-  line-height: 1;
-  margin-bottom: 1rem;
-  opacity: 0.6;
+  font-family: var(--serif); font-size: 3.5rem;
+  color: var(--accent); line-height: 0.8;
+  margin-bottom: 1rem; opacity: 0.5;
 }
 
 /* ── CONTACT ─────────────────────────────────────────────── */
@@ -658,7 +711,6 @@ footer {
 .testi-quote { font-family: var(--serif); font-size: 1.05rem; line-height: 1.75; color: var(--muted); margin-bottom: 1.5rem; font-style: italic; }
 .edu-degree { font-family: var(--serif); font-size: 1.25rem; font-weight: 500; margin-bottom: 0.3rem; }
 .blog-title { font-family: var(--serif); font-size: 1.15rem; font-weight: 500; line-height: 1.4; margin-bottom: 0.75rem; flex: 1; }
-/* ── SCROLL REVEAL ───────────────────────────────────────── */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.visible { opacity: 1; transform: none; }
 .reveal-delay-1 { transition-delay: 0.1s; }
@@ -904,7 +956,7 @@ footer {
   .hr { margin: 0 1.5rem; }
   .skills-grid, .projects-grid { grid-template-columns: 1fr; }
   .exp-item { grid-template-columns: 1fr; gap: 1rem; }
-  .testi-grid, .edu-grid { grid-template-columns: 1fr; }
+  .testi-grid, .testi-grid-bottom, .edu-grid { grid-template-columns: 1fr; }
   .gallery-grid, .blog-grid { grid-template-columns: 1fr 1fr; }
   footer { flex-direction: column; gap: 1rem; padding: 2rem 1.5rem; }
 }
@@ -965,7 +1017,7 @@ footer {
       Dual MS · <strong>2 IEEE papers</strong> · NSF-funded · healthcare domain specialist.
     </p>
     <div class="hero-actions reveal reveal-delay-4">
-      <a href="/cdn-cgi/l/email-protection#72024602131c161b064532151f131b1e5c111d1f" class="btn-primary-hero">↗ Get in touch</a>
+      <a href="mailto:p4pandit7@gmail.com" class="btn-primary-hero">↗ Get in touch</a>
       <a href="#experience" class="btn-ghost">View my work</a>
       <button class="btn-play-hero" onclick="openVideo('https://www.tiktok.com/embed/v2/6952204720861760773')">
         <span class="play-icon"><span class="play-triangle"></span></span>
@@ -1567,26 +1619,86 @@ footer {
 
 <!-- TESTIMONIALS -->
 <section id="testimonials">
-  <div class="section-label reveal">Testimonials</div>
-  <h2 class="section-title reveal reveal-delay-1">What colleagues<br>say.</h2>
+  <div class="testi-intro">
+    <div>
+      <div class="section-label reveal">Testimonials</div>
+      <h2 class="section-title reveal reveal-delay-1">What colleagues<br>say.</h2>
+    </div>
+    <a class="testi-linkedin-btn reveal reveal-delay-2" href="https://www.linkedin.com/in/pramita-pandit/details/recommendations/?detailScreenTabIndex=0" target="_blank">
+      View all on LinkedIn ↗
+    </a>
+  </div>
+
+  <!-- Top row: 2 most recent, most relevant -->
   <div class="testi-grid">
+    <div class="testi-card featured reveal">
+      <div class="testi-rel">Senior colleague · Calyx (Perceptive Clinical) · 2025</div>
+      <div class="testi-mark">"</div>
+      <div class="testi-quote">Pramita is hardworking, methodical and conscientious. Unassuming yet questions to cement her understanding.</div>
+      <div class="testi-footer">
+        <div class="testi-avatar gold">TS</div>
+        <div class="testi-meta">
+          <div class="testi-name">Tracy Shaw BSc (hons)</div>
+          <div class="testi-role">IRT Solutions Designer · Calyx</div>
+        </div>
+        <a class="testi-verify" href="https://www.linkedin.com/in/pramita-pandit/details/recommendations/?detailScreenTabIndex=0" target="_blank">Verify ↗</a>
+      </div>
+    </div>
+
+    <div class="testi-card featured reveal reveal-delay-1">
+      <div class="testi-rel">Cross-team colleague · Calyx · 2025</div>
+      <div class="testi-mark">"</div>
+      <div class="testi-quote">Pramita is kind, detail oriented and a fantastic team player. As an analyst, Pramita demonstrates high attention to detail, strong analytical skills and consistent eagerness to problem solve.</div>
+      <div class="testi-footer">
+        <div class="testi-avatar gold">TO</div>
+        <div class="testi-meta">
+          <div class="testi-name">Tracy Oxley</div>
+          <div class="testi-role">Digital Marketing Specialist · Calyx</div>
+        </div>
+        <a class="testi-verify" href="https://www.linkedin.com/in/pramita-pandit/details/recommendations/?detailScreenTabIndex=0" target="_blank">Verify ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom row: 3 TCS recommendations -->
+  <div class="testi-grid-bottom">
     <div class="testi-card reveal">
+      <div class="testi-rel">Colleague · TCS</div>
       <div class="testi-mark">"</div>
-      <div class="testi-quote">Pramita is very sincere and well-behaved with good technical, analytical and communication skills. Because of her dedicated work, we could achieve different milestones well ahead of time.</div>
-      <div class="testi-name">Deep Sengupta</div>
-      <div class="testi-role">Project Manager · TCS</div>
+      <div class="testi-quote">Because of her dedicated work in our team, we could achieve different milestones well ahead of time. I would highly recommend Pramita for any kind of work, specially in business and analytics domain.</div>
+      <div class="testi-footer">
+        <div class="testi-avatar blue">DS</div>
+        <div class="testi-meta">
+          <div class="testi-name">Deep Sengupta</div>
+          <div class="testi-role">Project Manager · TCS</div>
+        </div>
+      </div>
     </div>
+
     <div class="testi-card reveal reveal-delay-1">
+      <div class="testi-rel">Colleague · TCS</div>
       <div class="testi-mark">"</div>
-      <div class="testi-quote">Pramita is one of the best among all the professionals I have ever worked with. Intelligent, ambitious, energetic and proactive perfectionist — a genuine asset to any team.</div>
-      <div class="testi-name">Shuvadip Majumder</div>
-      <div class="testi-role">Lead Software Developer · TCS</div>
+      <div class="testi-quote">Pramita is one of the best among all the professionals I have ever worked with. Intelligent, ambitious, energetic and proactive perfectionist. A valuable asset to any team.</div>
+      <div class="testi-footer">
+        <div class="testi-avatar blue">SM</div>
+        <div class="testi-meta">
+          <div class="testi-name">Shuvadip Majumder</div>
+          <div class="testi-role">Lead Software Developer · TCS</div>
+        </div>
+      </div>
     </div>
+
     <div class="testi-card reveal reveal-delay-2">
+      <div class="testi-rel">Colleague · TCS</div>
       <div class="testi-mark">"</div>
       <div class="testi-quote">I found Pramita to be very sincere to her work and a great team-player during her work on the Hallmark Cards project.</div>
-      <div class="testi-name">Bidyut Ghatak</div>
-      <div class="testi-role">Program Manager · TCS</div>
+      <div class="testi-footer">
+        <div class="testi-avatar blue">BG</div>
+        <div class="testi-meta">
+          <div class="testi-name">Bidyut Ghatak</div>
+          <div class="testi-role">Program Manager · TCS</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1599,9 +1711,9 @@ footer {
     <div class="section-label reveal">Contact</div>
     <div class="contact-big reveal reveal-delay-1">Let's build<br>something<br><em>together.</em></div>
     <div class="contact-links reveal reveal-delay-2">
-      <a class="contact-link-row" href="/cdn-cgi/l/email-protection#f282c682939c969b86c5b2959f939b9edc919d9f">
+      <a class="contact-link-row" href="mailto:p4pandit7@gmail.com">
         <span class="contact-link-label">Email</span>
-        <span><span class="__cf_email__" data-cfemail="c7b7f3b7a6a9a3aeb3f087a0aaa6aeabe9a4a8aa">[email&#160;protected]</span></span>
+        <span>p4pandit7@gmail.com</span>
       </a>
       <a class="contact-link-row" href="https://www.linkedin.com/in/pramita-pandit/" target="_blank">
         <span class="contact-link-label">LinkedIn</span>
@@ -1645,11 +1757,11 @@ footer {
     <a href="https://www.linkedin.com/in/pramita-pandit/" target="_blank">LinkedIn</a>
     <a href="https://github.com/PramitaPandit" target="_blank">GitHub</a>
     <a href="https://medium.com/@pramita.pandit" target="_blank">Medium</a>
-    <a href="/cdn-cgi/l/email-protection#a3d397d3c2cdc7cad794e3c4cec2cacf8dc0ccce">Email</a>
+    <a href="mailto:p4pandit7@gmail.com">Email</a>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ── CURSOR
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');
@@ -1743,4 +1855,15 @@ document.getElementById('lightbox').addEventListener('click', function(e) {
 // ── GALLERY FILTER
 document.querySelectorAll('.gf-btn').forEach(btn => {
   btn.addEventListener('click', function() {
-    document.querySelectorAll('.gf-btn').forEach(b => b.class
+    document.querySelectorAll('.gf-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    const filter = this.dataset.filter;
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      const show = filter === 'all' || item.dataset.cat === filter;
+      item.style.display = show ? 'block' : 'none';
+    });
+  });
+});
+</script>
+</body>
+</html>
